@@ -91,14 +91,18 @@ Connection = A + t × AB      (nearest point on pipe)
 ## Project Structure
 
 ```
-TandomProgrammingChallenge/
-├── Point.cs                    # 3D coordinate (readonly record struct)
-├── WaterPipe.cs                # Pipe with ID, Start, End points
-├── SprinklerPlacement.cs       # Result: Position + ConnectionPoint + PipeID
-├── CeilingGeometryService.cs   # Grid generation & pipe projection logic
-├── SprinklerLayoutService.cs   # Main calculation orchestrator
-├── Program.cs                  # Entry point with input data
-└── TandomProgrammingChallenge.csproj
+SprinklerSystem/
+├── SprinklerSystem.sln
+├── README.md
+└── src/
+    └── SprinklerSystem/
+        ├── Point.cs                    # 3D coordinate (readonly record struct)
+        ├── WaterPipe.cs                # Pipe with ID, Start, End points
+        ├── SprinklerPlacement.cs       # Result: Position + ConnectionPoint + PipeID
+        ├── CeilingGeometryService.cs   # Grid generation & pipe projection logic
+        ├── SprinklerLayoutService.cs   # Main calculation orchestrator
+        ├── Program.cs                  # Entry point with input data
+        └── SprinklerSystem.csproj
 ```
 
 ### Class Descriptions
@@ -116,7 +120,7 @@ TandomProgrammingChallenge/
 ## How to Run
 
 ```bash
-cd TandomProgrammingChallenge
+cd src/SprinklerSystem
 dotnet run
 ```
 
