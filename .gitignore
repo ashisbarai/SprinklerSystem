@@ -1,0 +1,67 @@
+# User-specific files
+.idea/
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# ASP.NET Core build outputs
+bin/
+obj/
+
+# ASP.NET Core web server config
+wwwroot/
+node_modules/
+
+# NuGet packages
+*.nupkg
+*.snupkg
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# .NET Core CLI build
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# JetBrains Rider & ReSharper files
+.idea/
+.vs/
+
+# ASP.NET Core diagnostics
+*.vspscc
+.vsconfig
+
+# IIS Express
+/IISExpress/
+
+# Publish folder
+publish/
+
+# .NET Core global.json configuration
+global.json
+
+# JetBrains Rider files
+.idea/
+
+# Tye configuration
+.tye/
+
+# ASP.NET Core test coverage
+coverage/
+
+# macOS
+.DS_Store
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Backup files
+*~
