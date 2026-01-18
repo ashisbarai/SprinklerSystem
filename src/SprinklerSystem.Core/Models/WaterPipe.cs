@@ -1,4 +1,4 @@
-namespace SprinklerSystem
+namespace SprinklerSystem.Core.Models
 {
     public class WaterPipe
     {

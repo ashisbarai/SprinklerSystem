@@ -1,4 +1,4 @@
-﻿namespace SprinklerSystem
+namespace SprinklerSystem.Core.Models
 {
     public readonly record struct Point(double X, double Y, double Z)
     {

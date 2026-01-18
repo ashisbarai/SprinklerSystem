@@ -1,4 +1,13 @@
-using SprinklerSystem;
+using Microsoft.Extensions.DependencyInjection;
+using SprinklerSystem.Core.Abstractions;
+using SprinklerSystem.Core.Models;
+using SprinklerSystem.Core.Services;
+
+// Setup DI container
+var services = new ServiceCollection();
+services.AddScoped<ICeilingGeometryService, CeilingGeometryService>();
+services.AddScoped<ISprinklerLayoutService, SprinklerLayoutService>();
+var serviceProvider = services.BuildServiceProvider();
 
 // Room ceiling corner coordinates (clockwise: P1, P2, P3, P4)
 Point p1 = new Point(97500.01, 34000.00, 2500.00);
@@ -18,12 +27,12 @@ var waterPipes = new List<WaterPipe>
 double margin = 2500.0;
 double spacing = 2500.0;
 
-var ceilingGeometryService = new CeilingGeometryService();
 // Calculate
-var placements = new SprinklerLayoutService(ceilingGeometryService).GetPlacements(p1, p2, p3, p4, waterPipes, margin, spacing);
+var layoutService = serviceProvider.GetRequiredService<ISprinklerLayoutService>();
+var result = layoutService.GetPlacements(p1, p2, p3, p4, waterPipes, margin, spacing);
 
 // Print sprinkler count
-Console.WriteLine($"Number of Sprinklers: {placements.Count}");
+Console.WriteLine($"Number of Sprinklers: {result.NumberOfSprinklers}");
 Console.WriteLine();
 
 // Print table header
@@ -32,7 +41,7 @@ Console.WriteLine("|----|-------------------------------------|-----------------
 
 // Print sprinkler positions in tabular format
 int index = 1;
-foreach (var sprinkler in placements)
+foreach (var sprinkler in result.Placements)
 {
     Console.WriteLine($"| {index,-2} | {sprinkler.Position,-35} | {sprinkler.ConnectionPoint,-35} |");
     index++;
