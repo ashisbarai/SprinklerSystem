@@ -27,6 +27,10 @@ var waterPipes = new List<WaterPipe>
 double margin = 2500.0;
 double spacing = 2500.0;
 
+// Optional: Change display precision (default is 6 decimal places)
+// PrecisionConfig.DecimalPlaces = 4;  // Use 4 decimal places
+// PrecisionConfig.DecimalPlaces = PrecisionConfig.Presets.Standard; // Use 2 decimal places
+
 // Calculate
 var layoutService = serviceProvider.GetRequiredService<ISprinklerLayoutService>();
 var result = layoutService.GetPlacements(p1, p2, p3, p4, waterPipes, margin, spacing);

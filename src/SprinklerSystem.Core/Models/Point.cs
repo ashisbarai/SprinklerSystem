@@ -1,3 +1,5 @@
+using SprinklerSystem.Core.Configuration;
+
 namespace SprinklerSystem.Core.Models
 {
     public readonly record struct Point(double X, double Y, double Z)
@@ -9,6 +11,10 @@ namespace SprinklerSystem.Core.Models
                            Math.Pow(p2.Z - p1.Z, 2));
         }
 
-        public override string ToString() => $"({X:F2}, {Y:F2}, {Z:F2})";
+        public override string ToString()
+        {
+            var format = PrecisionConfig.FormatSpecifier;
+            return $"({X.ToString(format)}, {Y.ToString(format)}, {Z.ToString(format)})";
+        }
     }
 }
